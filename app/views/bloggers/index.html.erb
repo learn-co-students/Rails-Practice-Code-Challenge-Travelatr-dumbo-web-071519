@@ -1,0 +1,16 @@
+<h1></h1>
+<!-- 
+
+1. Users should be able to create a new blogger
+ 	
+2. Users should be able to see the profile page of a blogger. On this page, a user should see:
+	- The total likes on all of that blogger's posts
+	- A link to that blogger's featured post (the post with the most likes)
+-->
+<ul>
+    <% @bloggers.each do |blogger| %>
+        <li>
+            <%= link_to blogger.name, blogger %>
+        </li>
+    <% end %>
+</ul>

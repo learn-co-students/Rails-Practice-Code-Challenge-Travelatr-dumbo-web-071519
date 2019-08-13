@@ -1,0 +1,33 @@
+<h1>Show</h1>
+
+<!-- 
+Users should be able to see a post's page with its title and content displayed. On this page, a user should see:
+	- A link to the page of that post's author
+	- A link to the page of that post's destination
+	- A like button link that increases the like count for that post (should take the user to the same page)
+-->
+
+
+<p>
+	Title: <%= @post.title%>
+</p>
+
+<p>
+	Content: <%= @post.content %>
+</p>
+
+<p>
+	Author: <%= link_to Blogger.find(@post.blogger_id).name, blogger_path(@post.blogger_id) %>
+</p>
+
+<p>
+	Destination: <%= link_to Destination.find(@post.destination_id).name, destination_path(@post.destination_id) %>
+</p>
+
+
+<!-- 	- A like button link that increases the like count for that post (should take the user to the same page)
+-->
+
+<%= button_to "delete", @post, method: :delete %>
+
+<%= link_to "Edit", edit_post_path(@post) %>

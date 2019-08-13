@@ -1,0 +1,32 @@
+<h1></h1>
+<!-- 
+
+2. Users should be able to see the profile page of a blogger. On this page, a user should see:
+	- The total likes on all of that blogger's posts
+	- A link to that blogger's featured post (the post with the most likes)
+-->
+<p>
+	Name: <%= @blogger.name %>
+</p>
+
+<p>
+	Bio: <%= @blogger.bio %>
+</p>
+
+<p>
+	Age: <%= @blogger.age %>
+</p>
+
+
+<p>
+	Total Likes: <%= @blogger.total_likes %>
+</p>
+
+<p>
+	Featured Post: <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post.id) %>
+</p>
+
+<%= button_to "delete", @blogger, method: :delete %>
+
+<%= link_to "Edit", edit_blogger_path(@blogger) %>
+

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show, :edit, :update, :destroy]
+    before_action :find_post, only: [:show, :edit, :update, :destroy, :increase]
     def index
     @posts = Post.all
   end  
@@ -27,6 +27,16 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path
+  end
+
+  def increase
+    # patch "/students/:id/increase" do
+    #   find_student
+    #   @student.update(age: @student.age + 1)
+    #   redirect "/students/#{@student.id}"
+    # end
+    @post.update(likes: @post.likes + 1)
+    redirect_to @post
   end
 
   private 

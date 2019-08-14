@@ -15,7 +15,9 @@ Users should be able to see a post's page with its title and content displayed. 
 <p>
 	Content: <%= @post.content %>
 </p>
-
+<p>
+	Likes: <%= @post.likes %>
+</p>
 <p>
 	Author: <%= link_to Blogger.find(@post.blogger_id).name, blogger_path(@post.blogger_id) %>
 </p>
@@ -27,7 +29,7 @@ Users should be able to see a post's page with its title and content displayed. 
 
 <!-- 	- A like button link that increases the like count for that post (should take the user to the same page)
 -->
-
+<%= button_to "like", increase_post_path(@post.id), method: :patch %>
 <%= button_to "delete", @post, method: :delete %>
 
 <%= link_to "Edit", edit_post_path(@post) %>

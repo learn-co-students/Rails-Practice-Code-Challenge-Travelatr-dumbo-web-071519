@@ -1,0 +1,23 @@
+<%= form_for(@post) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.label :blogger %>
+    <%= f.collection_select :blogger_id, @bloggers, :id, :name %>
+
+    <%= f.label :destination %>
+    <%= f.collection_select :destination_id, @destinations, :id, :name %>
+
+    <%= f.submit %>
+<% end %>
+
+<% if flash[:errors]%>
+    <ul>
+        <% flash[:errors].each do |err| %>
+        <li style="color:red"><%= err %></li>
+        <% end %>
+    </ul>
+<% end %>

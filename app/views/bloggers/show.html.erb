@@ -1,0 +1,19 @@
+<h1><%= @blogger.name %></h1>
+<h3>Age: <%= @blogger.age %></h3>
+<h3>Total Likes: <%= @total_likes %></h3>
+<p><%= @blogger.bio %></p>
+<h2>Featured Post:</h2>
+<h3><%= link_to "#{@feat_post.title} - #{@feat_post.likes} likes", @feat_post %></h3>
+<h2>Top Five Destinations</h2>
+<% @blogger.number_of_posts.first(5).each do |post| %>
+    <h4>
+        <%= Destination.find(post[0]).name %> - <%= post[1] %> posts
+    </h4>
+    <ul>
+            <% @blogger.posts_on_destination(post[0]).each do |post| %>
+                <li><%= link_to post.title, post %></li>
+            <% end %>
+    </ul>
+<% end %>
+
+<%= button_to "See All Bloggers", bloggers_path, method: "get" %>

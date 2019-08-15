@@ -1,0 +1,11 @@
+<h1><%= @post.title %></h1>
+<h2>Blogger: <%= link_to @post.blogger.name, @post.blogger %></h2>
+<h2>Destination: <%= link_to @post.destination.name, @post.destination %></h2>
+<h3><%= @post.likes %> likes</h3>
+<%= button_to "💖", action: "add_like" %>
+<% @post.content.split("\n").each do |paragraph|  %>
+    <p><%= paragraph %></p>
+<% end %>
+
+<%= button_to "See All Posts", posts_path, method: "get" %>
+<%= button_to "Edit This Post", edit_post_path(@post), method: "get" %>

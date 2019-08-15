@@ -1,0 +1,5 @@
+<h1>All Posts</h1>
+<%= button_to "Make a New Posts", new_post_path, method: "get" %>
+<% @posts.each do |post| %>
+    <h4><%= link_to post.title, post %></h4>
+<% end %>

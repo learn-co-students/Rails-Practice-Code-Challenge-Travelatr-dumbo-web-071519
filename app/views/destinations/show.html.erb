@@ -1,0 +1,15 @@
+<h1><%= @destination.name %></h1>
+<h3>Country: <%= @destination.country %></h3>
+<% if @recentfive.length != 0 %>
+    <h2>Average Blogger Age: <%= @bloggers.map(&:age).reduce(:+) / @bloggers.count%></h2>
+    <h2>Feature Post:</h2>
+    <h4><%= link_to @feat_post.title, @feat_post %></h4>
+    <h2>Recent Posts about Here:</h2>
+    <ul>
+    <% @recentfive.each do |post| %>
+        <li><%= link_to post.title, post %></li>
+    <% end %>
+    </ul>
+<% else %>
+    <p>There have been no posts made about this destination</p>
+<% end %>
